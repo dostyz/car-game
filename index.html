@@ -2252,6 +2252,339 @@ kbd{
   #education{display:none}
 }
 </style>
+  
+/* =========================================
+   DRIVE SAFE 3D - UI 배치 수정 패치
+   기존 CSS의 가장 마지막에 추가
+========================================= */
+
+/* 중앙을 가리는 계기판을 왼쪽 상단으로 이동 */
+#dashboard {
+  position: absolute !important;
+
+  top: 12px !important;
+  left: 16px !important;
+  bottom: auto !important;
+  right: auto !important;
+
+  transform: none !important;
+
+  width: 220px !important;
+  height: 82px !important;
+  min-height: 0 !important;
+  max-height: 82px !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  padding: 10px 15px !important;
+  gap: 12px !important;
+
+  background: rgba(10, 20, 30, 0.88);
+  border: 1px solid #64748b;
+  border-radius: 14px;
+
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 25;
+}
+
+/* 속도계 크기 */
+#speed {
+  font-size: 36px !important;
+  line-height: 1 !important;
+}
+
+#dashboard .unit {
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+/* 현재 기어 표시 */
+#gear {
+  font-size: 28px !important;
+  padding: 6px 13px !important;
+  line-height: 1.2;
+}
+
+/* 비상등 표시 */
+#hazard {
+  font-size: 22px !important;
+}
+
+/* 급발진 게이지는 상단 중앙 */
+#top {
+  position: absolute !important;
+
+  top: 12px !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+
+  transform: translateX(-50%) !important;
+
+  width: min(480px, 35vw) !important;
+  height: auto !important;
+
+  padding: 12px 16px;
+  z-index: 20;
+}
+
+#title {
+  font-size: 17px !important;
+}
+
+/* 왼쪽 조작법 패널 */
+#controls {
+  position: absolute !important;
+
+  top: 106px !important;
+  left: 16px !important;
+  bottom: auto !important;
+  right: auto !important;
+
+  width: 220px !important;
+  height: auto !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  padding: 14px !important;
+  gap: 0 !important;
+
+  background: rgba(10, 20, 30, 0.88);
+}
+
+/* 조작법 제목 줄바꿈 방지 */
+#controls h2 {
+  display: block !important;
+  width: 100% !important;
+  white-space: nowrap !important;
+  font-size: 18px !important;
+  margin: 0 0 10px !important;
+}
+
+/* 조작법을 한 줄씩 정렬 */
+#controls .control {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  width: 100% !important;
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 6px 0 !important;
+  gap: 8px !important;
+
+  font-size: 14px !important;
+  white-space: nowrap !important;
+}
+
+#controls kbd {
+  flex-shrink: 0;
+  font-size: 12px !important;
+  padding: 4px 7px !important;
+}
+
+/* 오른쪽 급발진 대처 순서 */
+#manual {
+  position: absolute !important;
+
+  top: 12px !important;
+  right: 16px !important;
+  left: auto !important;
+  bottom: auto !important;
+
+  width: 245px !important;
+  height: auto !important;
+
+  padding: 14px !important;
+  z-index: 20;
+}
+
+#manual h2 {
+  font-size: 18px !important;
+  white-space: nowrap;
+}
+
+#manual .step {
+  font-size: 13px !important;
+  padding: 8px !important;
+  margin: 5px 0 !important;
+}
+
+#manual #message {
+  font-size: 12px !important;
+}
+
+/* 미니맵: 매뉴얼과 겹치지 않도록 이동 */
+#map {
+  position: absolute !important;
+
+  right: 16px !important;
+  bottom: 145px !important;
+  top: auto !important;
+  left: auto !important;
+
+  width: 115px !important;
+  height: 115px !important;
+
+  z-index: 20;
+}
+
+/* 자동차 작동 원리 버튼 */
+#education {
+  left: 16px !important;
+  bottom: 80px !important;
+  top: auto !important;
+
+  font-size: 13px !important;
+  padding: 9px 12px !important;
+}
+
+/* 기어 버튼 */
+#gearButtons {
+  bottom: 16px !important;
+  left: 16px !important;
+
+  display: flex !important;
+  gap: 6px !important;
+
+  pointer-events: auto;
+}
+
+#gearButtons button {
+  width: 42px !important;
+  height: 42px !important;
+  padding: 0 !important;
+}
+
+/* 가속 / 브레이크 / 방향 버튼 */
+#touch {
+  bottom: 16px !important;
+  right: 16px !important;
+
+  grid-template-columns: repeat(2, 75px) !important;
+  gap: 6px !important;
+
+  pointer-events: auto;
+}
+
+#touch button {
+  height: 48px !important;
+  padding: 6px !important;
+  font-size: 13px !important;
+}
+
+/* 급발진 경고가 중앙 시야를 가리지 않도록 */
+#alert {
+  top: 90px !important;
+  left: 50% !important;
+
+  transform: translateX(-50%) !important;
+
+  font-size: 17px !important;
+  padding: 10px 18px !important;
+
+  pointer-events: none;
+}
+
+/* 3D 화면 위 HUD 전체 */
+#hud {
+  position: absolute !important;
+  inset: 0 !important;
+
+  display: block !important;
+  pointer-events: none !important;
+}
+
+/* 버튼만 클릭 가능 */
+#hud button {
+  pointer-events: auto !important;
+}
+
+/* 작은 화면 대응 */
+@media (max-width: 800px) {
+
+  #dashboard {
+    width: 145px !important;
+    height: 65px !important;
+    max-height: 65px !important;
+    padding: 8px !important;
+  }
+
+  #speed {
+    font-size: 26px !important;
+  }
+
+  #gear {
+    font-size: 20px !important;
+    padding: 5px 8px !important;
+  }
+
+  #hazard {
+    font-size: 15px !important;
+  }
+
+  #top {
+    width: 34vw !important;
+    padding: 8px !important;
+  }
+
+  #title {
+    font-size: 12px !important;
+  }
+
+  #timer {
+    font-size: 10px !important;
+  }
+
+  #controls {
+    top: 85px !important;
+    width: 145px !important;
+    padding: 8px !important;
+  }
+
+  #controls h2 {
+    font-size: 13px !important;
+  }
+
+  #controls .control {
+    font-size: 11px !important;
+    padding: 4px 0 !important;
+  }
+
+  #controls kbd {
+    font-size: 10px !important;
+  }
+
+  #manual {
+    width: 155px !important;
+    padding: 8px !important;
+  }
+
+  #manual h2 {
+    font-size: 12px !important;
+  }
+
+  #manual .step {
+    font-size: 10px !important;
+    padding: 5px !important;
+  }
+
+  #map {
+    display: none !important;
+  }
+
+  #education {
+    display: none !important;
+  }
+}
+
 </head>
 
 <body>
